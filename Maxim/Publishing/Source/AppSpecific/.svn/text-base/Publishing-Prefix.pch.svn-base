@@ -1,0 +1,24 @@
+//
+// Prefix header for all source files of the 'Publishing' target in the 'Publishing' project
+//
+
+#import <Availability.h>
+#define kLastPostedTime		@"LastPostedTime"
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iPhone SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+#ifdef DEBUG1
+#define  PBLog(x,...)	NSLog( @"<%p %@:(%d)> %s %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], \
+                                                __LINE__,  _cmd, [NSString stringWithFormat:(x), ##__VA_ARGS__])
+#else
+#define  PBLog 
+#endif
+
+#import "PBConstants.h"
+#import "PBUtilities.h"
